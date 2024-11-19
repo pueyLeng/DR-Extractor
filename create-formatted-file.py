@@ -4,8 +4,11 @@ import datetime
 import math
 
 file_list = [
-    "20240625-1.txt",
-    "20240625-6.txt",
+   "20241116135754164_277580_MessageStatusSentDate.csv",
+   "20241116135809830_122129_MessageStatusSentDate.csv",
+     "20241113000303009_277580_MessageStatusSentDate.csv",
+   "20241113000315786_122129_MessageStatusSentDate.csv",
+   "20241114164815067_122129_MessageStatusSentDate.csv"
 ]
 
 
@@ -54,3 +57,4 @@ for file in file_list:
         print(end="\n")
     fw.close()
 print("Process is ended!")
+

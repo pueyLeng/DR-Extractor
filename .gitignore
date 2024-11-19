@@ -1,0 +1,7 @@
+/dr
+/formatted-file
+/raw-file
+/result
+*.csv
+/.venv
+.DS_Store

@@ -1,9 +1,12 @@
-senders = ["PEMBAGEMS"]
+senders =["Frolinahome","MICESMOD","SIRAWIT"]
 
 file_list = [
-    "formatted-file/new-20240625-1.txt",
-    "formatted-file/new-20240625-6.txt",
+   "formatted-file/new-20241113000329871_277580_MessageStatusSentDate.csv",
+   "formatted-file/new-20241113000339281_122129_MessageStatusSentDate.csv",
+   "formatted-file/new-20241114000044407_277580_MessageStatusSentDate.csv",
+   "formatted-file/new-20241114000050791_122129_MessageStatusSentDate.csv",
 ]
+# 
 attr_list = [3, 4, 5, 11, 12, 13, 14, 15]
 fw_list = []
 curr_index = -1
@@ -12,6 +15,7 @@ time = ""
 
 
 def printData():
+    total = success+fail+expire+ block +process
     a = [
         curr_sender,
         time,
@@ -20,6 +24,7 @@ def printData():
         str(expire),
         str(block),
         str(process),
+        str(total),
     ]
     ps = ",".join(a)
     return ps + "\n"
@@ -27,7 +32,7 @@ def printData():
 
 for sender in senders:
     fw = open("./result/" + str(sender) + "-07.csv", "w")
-    fw.writelines("sender,time,success,fail,expire,block,process\n")
+    fw.writelines("sender,time,success,fail,expire,block,process,total\n")
     fw_list.append(fw)
 for file in file_list:
     print("start reading file : ", file)
@@ -70,3 +75,4 @@ for fw in fw_list:
     fw.close()
 fw.close()
 print(" Process is ended!")
+
