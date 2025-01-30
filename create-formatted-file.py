@@ -4,11 +4,8 @@ import datetime
 import math
 
 file_list = [
-   "20241116135754164_277580_MessageStatusSentDate.csv",
-   "20241116135809830_122129_MessageStatusSentDate.csv",
-     "20241113000303009_277580_MessageStatusSentDate.csv",
-   "20241113000315786_122129_MessageStatusSentDate.csv",
-   "20241114164815067_122129_MessageStatusSentDate.csv"
+    "20250116-1.csv",
+    "20250116-6.csv",
 ]
 
 
@@ -31,9 +28,9 @@ def showProcess(count):
 
 reg = regex.compile(r"^[0-9]{4,}.*")
 for file in file_list:
-    fw = open("./formatted-file/new-" + file, "w", encoding="utf-8")
+    fw = open("./formatted-file/new-" + file, "w", encoding="utf-8", errors="replace")
     print("start reading file : ", "./raw-file/" + file)
-    with open(file, "r", encoding="utf-8") as fr:
+    with open("./raw-file/" + file, "r", encoding="utf-8", errors="replace") as fr:
         print("start counting file : ", file)
         startTime = time.time()
         for totalLine, _ in enumerate(fr):
@@ -45,7 +42,7 @@ for file in file_list:
         print("start rewriting file : ", file)
         for count, line in enumerate(fr):
             showProcess(count)
-            line = regex.sub(r"[^\w,:\-]+", "", line)
+            line = regex.sub(r"[^\w,:\-.]+", "", line)
             if not reg.match(line):
                 if len(line) <= 0:
                     continue
@@ -57,4 +54,3 @@ for file in file_list:
         print(end="\n")
     fw.close()
 print("Process is ended!")
-
